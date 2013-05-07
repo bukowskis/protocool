@@ -6,6 +6,10 @@ module Protocool
     use_ssl? ? 'https' : 'http'
   end
 
+  def protocol
+    "#{Protocool.https}://"
+  end
+
   private
 
   def use_ssl?
