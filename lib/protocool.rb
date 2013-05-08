@@ -13,8 +13,9 @@ module Protocool
   private
 
   def use_ssl?
-    # *Possibly* add "test environment" as an exception as well.
-    # But staging and production must really have SSL!
-    !Rails.env.development?
+    # Let the Rails config decide
+    return true if Rails.application.config.force_ssl
+    # Otherwise use default
+    !Rails.env.development? && !Rails.env.test?
   end
 end

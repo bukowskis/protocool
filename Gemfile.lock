@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    protocool (0.0.1)
+    protocool (0.1.0)
 
 GEM
   remote: http://rubygems.org/
