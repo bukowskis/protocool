@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    protocool (0.1.1)
+    protocool (0.1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -45,3 +45,6 @@ DEPENDENCIES
   protocool!
   rb-fsevent
   rspec
+
+BUNDLED WITH
+   1.13.0
