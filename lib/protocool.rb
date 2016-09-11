@@ -13,6 +13,9 @@ module Protocool
   private
 
   def use_ssl?
+    # Allow the user to override any defaults
+    # This is useful for booting a Rails app with production environment locally
+    return false if ENV['PROTOCOOL_FORCE_INSECURE'] == 'true'
     # Let the Rails config decide
     return true if Rails.respond_to?(:application) && Rails.application.config.force_ssl
     # Otherwise use default

@@ -105,5 +105,25 @@ describe Protocool do
       end
     end
 
+    context 'with force_ssl in non-dev and non-test mode but overriding manually' do
+      before do
+        Rails.stub_chain(:application, :config, :force_ssl).and_return true
+        Rails.stub!(:env).and_return mock(:environment, development?: false, test?: false)
+        stub_const 'ENV', {'PROTOCOOL_FORCE_INSECURE' => 'true'}
+      end
+
+      describe '.https' do
+        it 'uses TLS' do
+          protocool.https.should == 'http'
+        end
+      end
+
+      describe '.protocol' do
+        it 'uses TLS' do
+          protocool.protocol.should == 'http://'
+        end
+      end
+    end
+
   end
 end
