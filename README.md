@@ -16,18 +16,18 @@ gem install protocool
 
 ```ruby
 # In development mode:
-Protcool.https   # => 'http'
+Protocool.https   # => 'http'
 
 # In any other environment:
-Protcool.https   # => 'https'
+Protocool.https   # => 'https'
 ````
 
-#### Examples 
+#### Examples
 
 In your routes:
 
 ```ruby
-scope constraints: { protocol: "#{Protocool.https}://" } do
+scope constraints: { protocol: Protocool.protocol } do
   # ...
 end
 ```
